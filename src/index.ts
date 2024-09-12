@@ -1,15 +1,16 @@
-import { magenta, bgMagenta, bgCyan, cyan } from 'chalk';
+import { magenta, bgMagenta, bgCyan, cyan, bgRed, red } from 'chalk';
 import { manipulate } from './manipulate';
 import { findOddNumber } from './odd-number';
+import { countSmilyFace } from './smily';
 
 // manipulate
+console.log(bgMagenta('MANIPULATE'));
+
 const _manipulate = (input: string) => {
     const result: string[] = manipulate(input);
 
     console.log(magenta(`INPUT: ${input} => RESULT:`), result);
 };
-
-console.log(bgMagenta('MANIPULATE'));
 
 _manipulate('');
 _manipulate('a');
@@ -18,13 +19,13 @@ _manipulate('abc');
 _manipulate('aabb');
 
 // find odd number
+console.log(bgCyan('\nFIND ODD NUMBER'));
+
 const _findOddNumber = (inputs: number[]) => {
     const result: number | null = findOddNumber(inputs);
 
     console.log(cyan(`INPUT:`), inputs, cyan(`=> RESULT:`), result);
 };
-
-console.log(bgCyan('\nFIND ODD NUMBER'));
 
 _findOddNumber([]);
 _findOddNumber([-1, 0, 1.5]);
@@ -34,3 +35,18 @@ _findOddNumber([0]);
 _findOddNumber([1, 1, 2]);
 _findOddNumber([0, 1, 0, 1, 0]);
 _findOddNumber([1, 2, 2, 3, 3, 3, 4, 3, 3, 3, 2, 2, 1]);
+
+// count smily face
+console.log(bgRed('\nCOUNT SMILY FACE'));
+
+const _countSmilyFace = (inputs: string[]) => {
+    const result: number | null = countSmilyFace(inputs);
+
+    console.log(red(`INPUT:`), inputs, red(`=> RESULT:`), result);
+};
+
+_countSmilyFace([]);
+_countSmilyFace([':)', ';(', ';}', ':-D']);
+_countSmilyFace([';D', ':-(', ':-)', ';~)']);
+_countSmilyFace([';]', ':[', ';*', ':$', ';-D']);
+_countSmilyFace([':)', ':(', ':>']);
